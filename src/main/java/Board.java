@@ -1,42 +1,46 @@
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Board {
-    private Cell[][] cells;
-    public Board(){
-        cells = new Cell[8][8];
 
-        for (int row=1;row<= cells.length;row++)
+    private Map<Coordinate,Cell> cells;
+
+    public Board(){
+        cells = new LinkedHashMap<>();
+
+        for (int row=1;row<= 8;row++)
             for(char col='A';col<='H';col++)
-                cells[row-1][col-'A']=new Cell(this,new Coordinate(col,row));
+                cells.put(new Coordinate(col,row),new Cell(this,new Coordinate(col,row)));
 
     }
     public boolean contains(Coordinate c) {
-        if(c.getLetter()<'A' || c.getLetter()>'H') return false;
-        if(c.getNumber()<1 || c.getNumber()>8) return false;
-
-        return true;
+        if (cells.containsKey(c)){
+            return true;
+        }
+        return false;
     }
     public Cell getCellAt(Coordinate c) {
-        if(!contains(c)) return null;
+        if(!cells.containsKey(c)){
+            return null;
+        }
+        else {
+            return cells.get(c);
+        }
+    }
 
-        return cells[c.getNumber()-1][c.getLetter()-'A'];
+    public void highLight(Collection<Coordinate> coordinates){
+        for (Coordinate c : coordinates)
+            getCellAt(c).highlight();
     }
-    public void highLight(List<Coordinate> coordinates){
-        coordinates.stream().forEach(coordinate -> getCellAt(coordinate).highlight());
-    }
-    public void highLight(Coordinate[] coordinates){
-        highLight(Arrays.asList(coordinates));
-    }
+
+
     @Override
     public String toString() {
         String aux="    A  B  C  D  E  F  G  H\n";
         int row=1;
-        for(Cell[] rowCell : cells){
+        int counter=0;
+        for(Coordinate c: cells.keySet()){
             aux+=" " + row +" ";
-            for(Cell cell : rowCell)
-                aux+=cell;
-            aux+=" " + row++ + "\n";
+
         }
         aux+="    A  B  C  D  E  F  G  H";
         return aux;
