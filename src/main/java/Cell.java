@@ -47,6 +47,10 @@ public class Cell {
             this.color = (piece!=null)? Color.HIGHLIGHT_KILL_BLACK : Color.HIGHLIGHT_BLACK;
     }
 
+    public void removeHighLight(){
+        this.color = originalColor;
+    }
+
     @Override
     public String toString(){
         if(piece==null){
