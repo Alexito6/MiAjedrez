@@ -4,4 +4,5 @@ public class Ajedrez {
         board.inicialice();
         System.out.println(board);
     }
+    
 }
