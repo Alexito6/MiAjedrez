@@ -1,16 +1,19 @@
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class King extends Piece {
+    private boolean vivo;
     public King(Board board, Coordinate position, Type type) {
         super(type.getType(), board.getCellAt(position));
+        vivo=true;
     }
 
     @Override
     public Set<Coordinate> getNextMovements() {
 
         Coordinate position = getCell().getCoordinate();
-        Set<Coordinate> posicionesCandidatas = new TreeSet<>();
+        Set<Coordinate> posicionesCandidatas = new HashSet<>();
 
         if (canAddToNextMovements(position.up()))
             posicionesCandidatas.add(position);
@@ -50,5 +53,8 @@ public class King extends Piece {
         public Piece.Type getType() {
             return type;
         }
+    }
+    public void setVivo(){
+        vivo=false;
     }
 }

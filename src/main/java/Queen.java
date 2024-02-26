@@ -1,4 +1,5 @@
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -9,7 +10,7 @@ public class Queen extends Piece{
 
     //put your task here
     public Set<Coordinate> getNextMovements(){
-        Set<Coordinate> posicionesCandidatas = new TreeSet<>();
+        Set<Coordinate> posicionesCandidatas = new HashSet<>();
 
         for (Coordinate c : Bishop.getNextMovementsAsBishop(this))
             posicionesCandidatas.add(c);

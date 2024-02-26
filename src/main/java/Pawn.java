@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -32,7 +33,7 @@ public class Pawn extends Piece {
     }
 
     private Set<Coordinate> getNextMovementsAsWhite() {
-        Set<Coordinate> posicionesCandidatas = new TreeSet<>();
+        Set<Coordinate> posicionesCandidatas = new HashSet<>();
         Coordinate c;
         Coordinate position = getCell().getCoordinate();
         Board board = getCell().getBoard();
@@ -55,7 +56,7 @@ public class Pawn extends Piece {
             posicionesCandidatas.add(c);
 
         // Si esta en la posicion inicial se le permite avanzar 2 posiciones
-        if (position.getNumber() == 2) {
+        if (position.getNumber() == 7) {
             c = position.up();
             if (board.contains(c) && board.getCellAt(c).getPiece() == null) {
                 c = c.up();

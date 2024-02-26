@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -12,7 +13,7 @@ public class Bishop extends Piece {
 
     public static Set<Coordinate> getNextMovementsAsBishop(Piece piece) {
 
-        Set<Coordinate> posicionesCandidatas = new TreeSet<>();
+        Set<Coordinate> posicionesCandidatas = new HashSet<>();
         Coordinate posicion = piece.getCell().getCoordinate();
         Coordinate c;
         Board board = piece.getCell().getBoard();

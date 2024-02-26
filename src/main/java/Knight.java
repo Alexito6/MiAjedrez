@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -9,7 +10,7 @@ public class Knight extends Piece {
 
     public Set<Coordinate> getNextMovements() {
 
-        Set<Coordinate> posicionesCandidatas = new TreeSet<>();
+        Set<Coordinate> posicionesCandidatas = new HashSet<>();
 
         Coordinate myPosition = getCell().getCoordinate();
         Coordinate c;

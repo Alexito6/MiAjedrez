@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -14,7 +15,7 @@ public class Rook extends Piece {
     //put your task here
     public static Set<Coordinate> getNextMovementsAsRook(Piece piece) {
 
-        Set<Coordinate> posicionesCandidatas = new TreeSet<>();
+        Set<Coordinate> posicionesCandidatas = new HashSet<>();
         Coordinate posicion = piece.getCell().getCoordinate();
         Coordinate c;
         Board board = piece.getCell().getBoard();
@@ -23,7 +24,7 @@ public class Rook extends Piece {
         if (posicion == null)
             return posicionesCandidatas;
 
-        // Diagonal superior
+        // Arriba
         c = posicion;
         do {
             c = c.up();
@@ -31,7 +32,7 @@ public class Rook extends Piece {
                 posicionesCandidatas.add(c);
         } while (board.contains(c) && board.getCellAt(c).getPiece() == null);
 
-        // Diagonal  der
+        // Derecha
         c = posicion;
         do {
             c = c.right();
@@ -39,7 +40,7 @@ public class Rook extends Piece {
                 posicionesCandidatas.add(c);
         } while (board.contains(c) && board.getCellAt(c).getPiece() == null);
 
-        // Diagonal  izq
+        // Izquierda
         c = posicion;
         do {
             c = c.left();
@@ -47,7 +48,7 @@ public class Rook extends Piece {
                 posicionesCandidatas.add(c);
         } while (board.contains(c) && board.getCellAt(c).getPiece() == null);
 
-        // Diagonal inferior
+        // Abajo
         c = posicion;
         do {
             c = c.down();

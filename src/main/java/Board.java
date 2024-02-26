@@ -15,6 +15,13 @@ public class Board {
     public boolean contains(Coordinate c) {
         return (cells.containsKey(c));
     }
+    public boolean reyVivo(Piece.Type pieceType){
+        for (Cell c:cells.values()){
+            if (c.getPiece().getType().equals(pieceType)){
+
+            }
+        }
+    }
     public Cell getCellAt(Coordinate c) {
         if(!contains(c)){
             return null;
