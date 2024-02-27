@@ -4,12 +4,18 @@ import java.util.Set;
 
 public class Ajedrez {
     public static void main(String[] args) {
+        String jugadorBlanco,jugadorNegro;
         Scanner sc=new Scanner(System.in);
-        String mov;
+        System.out.println("Please insert the name of the player who will play with the white pieces.");
+        jugadorBlanco= sc.nextLine();
+        System.out.println("Please insert the name of the player who will play with the black pieces.");
+        jugadorBlanco= sc.nextLine();
         Board board=new Board();
         board.inicialice();
         System.out.println(board);
-        mov=Input.pedirCoordenada("Tell me the coordinate of the piece you want to move");
-        Input.movePiece(mov,board);
+        while (board.hayReyes()){
+            System.out.println("------------------------------------------------"+jugadorBlanco+"'turn--------------------------------------------------------------------------");
+            String mov;
+        }
     }
 }

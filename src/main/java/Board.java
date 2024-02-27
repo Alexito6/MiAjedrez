@@ -15,12 +15,42 @@ public class Board {
     public boolean contains(Coordinate c) {
         return (cells.containsKey(c));
     }
-    public boolean reyVivo(Piece.Type pieceType){
-        for (Cell c:cells.values()){
-            if (c.getPiece().getType().equals(pieceType)){
 
+    public boolean hayReyes(){
+        boolean reyBlancoVivo=false;
+        boolean reyNegroVivo=false;
+        Piece.Type reyBlanco= Piece.Type.WHITE_KING;
+        Piece.Type reyNegro= Piece.Type.BLACK_KING;
+        for (Cell c : cells.values()) {
+            if (c.getPiece().getType() == reyBlanco) {
+                reyBlancoVivo=true;
+            }
+            if (c.getPiece().getType() == reyNegro) {
+                reyNegroVivo=true;
             }
         }
+        if (reyBlancoVivo && reyNegroVivo){
+            return true;
+        }
+        return false;
+    }
+    public boolean reyBlancoVivo () {
+        Piece.Type reyBlanco = Piece.Type.WHITE_KING;
+        for (Cell c : cells.values()) {
+            if (c.getPiece().getType() == reyBlanco) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean reyNegroVivo () {
+        Piece.Type reyNegro = Piece.Type.BLACK_KING;
+        for (Cell c : cells.values()) {
+            if (c.getPiece().getType() == reyNegro) {
+                return true;
+            }
+        }
+        return false;
     }
     public Cell getCellAt(Coordinate c) {
         if(!contains(c)){
