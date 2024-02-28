@@ -69,7 +69,7 @@ public class Pawn extends Piece {
     }
 
     private Set<Coordinate> getNextMovementsAsBlack() {
-        Set<Coordinate> posicionesCandidatas = new TreeSet<>();
+        Set<Coordinate> posicionesCandidatas = new HashSet<>();
         Coordinate c;
         Coordinate position = getCell().getCoordinate();
         Board board = getCell().getBoard();

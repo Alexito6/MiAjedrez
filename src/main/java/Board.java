@@ -22,11 +22,13 @@ public class Board {
         Piece.Type reyBlanco= Piece.Type.WHITE_KING;
         Piece.Type reyNegro= Piece.Type.BLACK_KING;
         for (Cell c : cells.values()) {
-            if (c.getPiece().getType() == reyBlanco) {
-                reyBlancoVivo=true;
-            }
-            if (c.getPiece().getType() == reyNegro) {
-                reyNegroVivo=true;
+            if (!c.isEmpty()){
+                if (c.getPiece().getType() == reyBlanco) {
+                    reyBlancoVivo=true;
+                }
+                if (c.getPiece().getType() == reyNegro) {
+                    reyNegroVivo=true;
+                }
             }
         }
         if (reyBlancoVivo && reyNegroVivo){
@@ -37,17 +39,22 @@ public class Board {
     public boolean reyBlancoVivo () {
         Piece.Type reyBlanco = Piece.Type.WHITE_KING;
         for (Cell c : cells.values()) {
-            if (c.getPiece().getType() == reyBlanco) {
-                return true;
+            if (!c.isEmpty()){
+                if (c.getPiece().getType() == reyBlanco) {
+                    return true;
+                }
             }
+
         }
         return false;
     }
     public boolean reyNegroVivo () {
         Piece.Type reyNegro = Piece.Type.BLACK_KING;
         for (Cell c : cells.values()) {
-            if (c.getPiece().getType() == reyNegro) {
-                return true;
+            if (!c.isEmpty()){
+                if (c.getPiece().getType() == reyNegro) {
+                    return true;
+                }
             }
         }
         return false;

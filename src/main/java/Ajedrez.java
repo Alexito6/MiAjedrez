@@ -9,13 +9,33 @@ public class Ajedrez {
         System.out.println("Please insert the name of the player who will play with the white pieces.");
         jugadorBlanco= sc.nextLine();
         System.out.println("Please insert the name of the player who will play with the black pieces.");
-        jugadorBlanco= sc.nextLine();
+        jugadorNegro= sc.nextLine();
         Board board=new Board();
         board.inicialice();
-        System.out.println(board);
-        while (board.hayReyes()){
+        boolean reyesVivos=true;
+        while (reyesVivos){
             System.out.println("------------------------------------------------"+jugadorBlanco+"'turn--------------------------------------------------------------------------");
-            String mov;
+            System.out.println(board);
+            String mov=Input.pedirCoordenada(jugadorBlanco+" tell me the coordinate of the piece you want to move please. Example(G6)");
+            Input.movePiece(mov,board);
+            if (!board.hayReyes()){
+                reyesVivos=false;
+            }
+            else {
+                System.out.println("------------------------------------------------"+jugadorNegro+"'turn--------------------------------------------------------------------------");
+                System.out.println(board);
+                mov=Input.pedirCoordenada(jugadorNegro+" tell me the coordinate of the piece you want to move please. Example(C3)");
+                Input.movePiece(mov,board);
+                if (!board.hayReyes()){
+                    reyesVivos=false;
+                }
+            }
+        }
+        if (!board.reyNegroVivo()){
+            System.out.println(jugadorBlanco+" wins");
+        }
+        if (!board.reyBlancoVivo()){
+            System.out.println(jugadorBlanco+" wins");
         }
     }
 }

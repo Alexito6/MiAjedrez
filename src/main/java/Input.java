@@ -13,6 +13,13 @@ public class Input {
         char letter=coordenada.charAt(0);
         int num=coordenada.charAt(1)-48;
         Coordinate piezaAmover=new Coordinate(letter,num);
+        while (board.getCellAt(piezaAmover).isEmpty()){
+            System.out.println("There is no piece at that coordinate, try again");
+            coordenada=scanner.nextLine();
+            letter=coordenada.charAt(0);
+            num=coordenada.charAt(1)-48;
+            piezaAmover= new Coordinate(letter,num);
+        }
         Set<Coordinate> coordenadasPosibles=new HashSet<>(board.getCellAt(piezaAmover).getPiece().getNextMovements());
         board.highLight(coordenadasPosibles);
         Output.mostrarTablero(board);
