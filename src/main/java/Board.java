@@ -15,7 +15,9 @@ public class Board {
     public boolean contains(Coordinate c) {
         return (cells.containsKey(c));
     }
-
+    public Map<Coordinate,Cell> getCells(){
+        return cells;
+    }
     public boolean hayReyes(){
         boolean reyBlancoVivo=false;
         boolean reyNegroVivo=false;
