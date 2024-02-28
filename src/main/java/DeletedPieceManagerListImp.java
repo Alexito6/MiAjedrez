@@ -14,6 +14,9 @@ public class DeletedPieceManagerListImp{
     public void addPiece(Piece piece){
         pieceList.add(piece);
     }
+    public void imprimir(){
+        colorize("sus",Attribute.BACK_COLOR())
+    }
     public Piece removeLast(){
         return pieceList.remove(pieceList.size()-1);
     }
