@@ -15,8 +15,14 @@ public class Board {
     public boolean contains(Coordinate c) {
         return (cells.containsKey(c));
     }
-    public Map<Coordinate,Cell> getCells(){
-        return cells;
+    public List<Piece> getPiezas(){
+        List<Piece> piezas=new ArrayList<>();
+        for (Cell c:cells.values()){
+            if (!c.isEmpty()){
+                piezas.add(c.getPiece());
+            }
+        }
+        return piezas;
     }
     public boolean hayReyes(){
         boolean reyBlancoVivo=false;

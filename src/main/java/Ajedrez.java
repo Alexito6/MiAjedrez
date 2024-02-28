@@ -12,6 +12,8 @@ public class Ajedrez {
         jugadorNegro= sc.nextLine();
         Board board=new Board();
         board.inicialice();
+        DeletedPieceManagerListImp listaPiezas=new DeletedPieceManagerListImp();
+        listaPiezas.getPieceList().addAll(board.getPiezas());
         boolean reyesVivos=true;
         while (reyesVivos){
             System.out.println("------------------------------------------------"+jugadorBlanco+"'turn--------------------------------------------------------------------------");
