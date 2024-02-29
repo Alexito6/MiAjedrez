@@ -18,16 +18,20 @@ public class Ajedrez {
         while (reyesVivos){
             System.out.println("------------------------------------------------"+jugadorBlanco+"'turn--------------------------------------------------------------------------");
             System.out.println(board);
+            System.out.println(listaPiezas.cajaRestantes());
             String mov=Input.pedirCoordenada(jugadorBlanco+" tell me the coordinate of the piece you want to move please. Example(G6)");
             Input.movePiece(mov,board);
+            listaPiezas.setPieceList(board.getPiezas());
             if (!board.hayReyes()){
                 reyesVivos=false;
             }
             else {
                 System.out.println("------------------------------------------------"+jugadorNegro+"'turn--------------------------------------------------------------------------");
                 System.out.println(board);
+                System.out.println(listaPiezas.cajaRestantes());
                 mov=Input.pedirCoordenada(jugadorNegro+" tell me the coordinate of the piece you want to move please. Example(C3)");
                 Input.movePiece(mov,board);
+                listaPiezas.setPieceList(board.getPiezas());
                 if (!board.hayReyes()){
                     reyesVivos=false;
                 }

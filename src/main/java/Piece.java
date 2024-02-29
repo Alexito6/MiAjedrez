@@ -43,9 +43,10 @@ public abstract class Piece {
         return encontrado;
     }
 
-    public void remove(){
-        if(cell!=null)
+    public void remove() {
+        if (cell != null){
             cell.setPiece(null);
+        }
         cell = null;
     }
 
