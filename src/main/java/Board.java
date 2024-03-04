@@ -85,7 +85,41 @@ public class Board {
             getCellAt(c).removeHighLight();
         }
     }
-
+    public boolean check(){
+        List<Piece> blancas=new ArrayList<>();
+        List<Piece> negras=new ArrayList<>();
+        Piece.Type reyNegro= Piece.Type.BLACK_KING;
+        Piece.Type reyBlanco= Piece.Type.WHITE_KING;
+        Coordinate reyNeg=null;
+        Coordinate reyBlan=null;
+        for (Cell c:cells.values()){
+            if (!c.isEmpty()){
+                if (c.getPiece().getType()==reyNegro){
+                    reyNeg=c.getCoordinate();
+                }
+                if (c.getPiece().getType()==reyBlanco){
+                    reyBlan=c.getCoordinate();
+                }
+                if (c.getPiece().getColor()==Piece.Color.BLACK){
+                    negras.add(c.getPiece());
+                }
+                if (c.getPiece().getColor()==Piece.Color.WHITE){
+                    blancas.add(c.getPiece());
+                }
+            }
+        }
+        for (Piece p:negras){
+            if (p.canMoveTo(reyBlan)){
+                return true;
+            }
+        }
+        for (Piece p:blancas){
+            if (p.canMoveTo(reyNeg)){
+                return true;
+            }
+        }
+        return false;
+    }
     @Override
     public String toString() {
         String aux="    A  B  C  D  E  F  G  H\n";
