@@ -43,9 +43,6 @@ public class Ajedrez {
                 mov=Input.pedirCoordenada(jugadorNegro+" tell me the coordinate of the piece you want to move please. Example(C3)");
                 Input.movePiece(mov,board);
                 listaPiezas.setPieceList(board.getPiezas());
-                if (board.check()){
-                    System.out.println(check);
-                }
                 if (!board.hayReyes()){
                     reyesVivos=false;
                 }

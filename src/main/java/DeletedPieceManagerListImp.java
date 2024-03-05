@@ -41,11 +41,8 @@ public class DeletedPieceManagerListImp{
         for (Piece p:pieceList){
             if (p.getType()== Piece.Type.BLACK_KING){
                 reyNegro=count(p.getType());
-                if (reyNegro!=1){
+                if (reyNegro==0){
                     reyNegro=1;
-                }
-                else {
-                    reyNegro=0;
                 }
             }
             if (p.getType()== Piece.Type.BLACK_PAWN){
@@ -53,17 +50,11 @@ public class DeletedPieceManagerListImp{
                 if (peonNegro!=8){
                     peonNegro=8-peonNegro;
                 }
-                else {
-                    peonNegro=0;
-                }
             }
             if (p.getType()== Piece.Type.BLACK_QUEEN){
                 reinaNegra=count(p.getType());
                 if (reinaNegra!=1){
-                    reinaNegra=0;
-                }
-                else {
-                    reinaNegra=0;
+                    reinaNegra=1;
                 }
             }
             if (p.getType()== Piece.Type.BLACK_ROOK){
@@ -71,35 +62,25 @@ public class DeletedPieceManagerListImp{
                 if (torreNegra!=2){
                     torreNegra=2-torreNegra;
                 }
-                else {
-                    torreNegra=0;
-                }
             }
+
             if (p.getType()== Piece.Type.BLACK_KNIGHT){
                 caballoNegro=count(p.getType());
                 if (caballoNegro!=2){
                     caballoNegro=2-caballoNegro;
                 }
-                else {
-                    caballoNegro=0;
-                }
             }
+
             if (p.getType()== Piece.Type.BLACK_BISHOP){
                 alfilNegro=count(p.getType());
                 if (alfilNegro!=2){
                     alfilNegro=2-alfilNegro;
                 }
-                else {
-                    alfilNegro=0;
-                }
             }
             if (p.getType()== Piece.Type.WHITE_KING){
                 reyBlanco=count(p.getType());
                 if (reyBlanco!=1){
-                    reyBlanco=0;
-                }
-                else {
-                    reyBlanco=0;
+                    reyBlanco=1;
                 }
             }
             if (p.getType()== Piece.Type.WHITE_PAWN){
@@ -107,17 +88,11 @@ public class DeletedPieceManagerListImp{
                 if (peonBlanco!=8){
                     peonBlanco=8-peonBlanco;
                 }
-                else {
-                    peonBlanco=0;
-                }
             }
             if (p.getType()== Piece.Type.WHITE_QUEEN){
                 reinaBlanca=count(p.getType());
                 if (reinaBlanca!=1){
-                    reinaBlanca=0;
-                }
-                else {
-                    reinaBlanca=0;
+                    reinaBlanca=1;
                 }
             }
             if (p.getType()== Piece.Type.WHITE_ROOK){
@@ -125,17 +100,11 @@ public class DeletedPieceManagerListImp{
                 if (torreBlanca!=2){
                     torreBlanca=2-torreBlanca;
                 }
-                else {
-                    torreBlanca=0;
-                }
             }
             if (p.getType()== Piece.Type.WHITE_KNIGHT){
                 caballoBlanco=count(p.getType());
                 if (caballoBlanco!=2){
                     caballoBlanco=2-caballoBlanco;
-                }
-                else {
-                    caballoBlanco=0;
                 }
             }
             if (p.getType()== Piece.Type.WHITE_BISHOP){
@@ -143,11 +112,67 @@ public class DeletedPieceManagerListImp{
                 if (alfilBlanco!=2){
                     alfilBlanco=2-alfilBlanco;
                 }
-                else {
-                    alfilBlanco=0;
-                }
             }
-
+        }
+        if (reyNegro==1){
+            reyNegro=0;
+        } else if (reyNegro==0) {
+            reyNegro=1;
+        }
+        if (peonNegro==8){
+            peonNegro=0;
+        } else if (peonNegro==0) {
+            peonNegro=8;
+        }
+        if (reinaNegra==1){
+            reinaNegra=0;
+        } else if (reinaNegra==0) {
+            reinaNegra=1;
+        }
+        if (torreNegra==2){
+            torreNegra=0;
+        } else if (torreNegra==0) {
+            torreNegra=2;
+        }
+        if (caballoNegro==2){
+            caballoNegro=0;
+        } else if (caballoNegro==0) {
+            caballoNegro=2;
+        }
+        if (alfilNegro==2){
+            alfilNegro=0;
+        } else if (alfilNegro==0) {
+            alfilNegro=2;
+        }
+        if (reyBlanco==1){
+            reyBlanco=0;
+        } else if (reyBlanco==0) {
+            reyBlanco=1;
+        }
+        if (peonBlanco==8){
+            peonBlanco=0;
+        } else if (peonBlanco==0) {
+            peonBlanco=8;
+        }
+        if (reinaBlanca==1){
+            reinaBlanca=0;
+        } else if (reinaBlanca==0) {
+            reinaBlanca=1;
+        }
+        if (torreBlanca==2){
+            torreBlanca=0;
+        } else if (torreBlanca==0) {
+            torreBlanca=1;
+        }
+        if (caballoBlanco==2){
+            caballoBlanco=0;
+        } else if (caballoBlanco==0) {
+            caballoBlanco=2;
+        }
+        if (alfilBlanco==2){
+            alfilBlanco=0;
+        } else if (alfilBlanco==0) {
+            alfilBlanco=2;
         }
         String cajaAbajo=peonBlanco+" "+torreBlanca+" "+alfilBlanco+" "+reyBlanco+" "+caballoBlanco+" "+reinaBlanca+
                 " "+peonNegro+" "+torreNegra+" "+alfilNegro+" "+reyNegro+" "+caballoNegro+" "+reinaNegra;
